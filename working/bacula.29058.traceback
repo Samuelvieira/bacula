@@ -1,0 +1,84 @@
+[New LWP 29066]
+[Thread debugging using libthread_db enabled]
+0x00000034bae0f37d in waitpid () from /lib64/libpthread.so.0
+$1 = "29-Nov-2016 09:24:39\000\000\000\000\000\000\000\000\000"
+$2 = '\000' <repeats 127 times>
+$3 = 0x1499098 "bacula-sd"
+$4 = 0x14990d8 "/opt/bacula/sbin/bacula-sd"
+$5 = 0x14cdd08 "bk1p-sd: ABORTING due to ERROR in bnet_server.c:132\nCannot bind port 9103: ERR=Endereço já em uso.\n"
+$6 = '\000' <repeats 49 times>
+$7 = 0x7f7b0645bbc5 "7.4.3 (18 June 2016)"
+$8 = 0x7f7b0645bbe2 "x86_64-unknown-linux-gnu"
+$9 = 0x7f7b0645bbfb "redhat"
+$10 = 0x7f7b0645b895 ""
+$11 = "bk1p", '\000' <repeats 45 times>
+$12 = 0x7f7b0645bbda "redhat "
+Environment variable "TestName" not defined.
+#0  0x00000034bae0f37d in waitpid () from /lib64/libpthread.so.0
+#1  0x00007f7b06447339 in signal_handler (sig=11) at signal.c:237
+#2  <signal handler called>
+#3  e_msg (file=<value optimized out>, line=<value optimized out>, type=<value optimized out>, level=<value optimized out>, fmt=0x7f7b06458824 "Cannot bind port %d: ERR=%s.\n") at message.c:1332
+#4  0x00007f7b064287ce in bnet_thread_server (addrs=0x149d318, max_clients=41, client_wq=0x660760, handle_client_request=0x425780 <handle_connection_request(void*)>) at bnet_server.c:132
+#5  0x0000000000408687 in main (argc=<value optimized out>, argv=<value optimized out>) at stored.c:294
+
+Thread 2 (Thread 0x7f7aff951700 (LWP 29066)):
+#0  0x00000034bae0ba5e in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x00007f7b064518fd in watchdog_thread (arg=<value optimized out>) at watchdog.c:312
+#2  0x00000034bae07aa1 in start_thread () from /lib64/libpthread.so.0
+#3  0x00000034baae8aad in clone () from /lib64/libc.so.6
+
+Thread 1 (Thread 0x7f7b064067e0 (LWP 29058)):
+#0  0x00000034bae0f37d in waitpid () from /lib64/libpthread.so.0
+#1  0x00007f7b06447339 in signal_handler (sig=11) at signal.c:237
+#2  <signal handler called>
+#3  e_msg (file=<value optimized out>, line=<value optimized out>, type=<value optimized out>, level=<value optimized out>, fmt=0x7f7b06458824 "Cannot bind port %d: ERR=%s.\n") at message.c:1332
+#4  0x00007f7b064287ce in bnet_thread_server (addrs=0x149d318, max_clients=41, client_wq=0x660760, handle_client_request=0x425780 <handle_connection_request(void*)>) at bnet_server.c:132
+#5  0x0000000000408687 in main (argc=<value optimized out>, argv=<value optimized out>) at stored.c:294
+#0  0x00000034bae0f37d in waitpid () from /lib64/libpthread.so.0
+No symbol table info available.
+#1  0x00007f7b06447339 in signal_handler (sig=11) at signal.c:237
+237	         waitpid(pid, &chld_status, 0);   /* wait for child to produce dump */
+sigdefault = {__sigaction_handler = {sa_handler = 0, sa_sigaction = 0}, sa_mask = {__val = {18446744067267100671, 18446744073709551615 <repeats 15 times>}}, sa_flags = 0, sa_restorer = 0}
+argv = {0x0, 0x0, 0x0, 0x0, 0x0}
+pid_buf = "29058", '\000' <repeats 14 times>
+buf = "v\277m\335\000\000\000\000\353\240A\006{\177\000\000`\277m\335\375\177\000\000v\277m\335\375\177\000\000@\347L\001", '\000' <repeats 12 times>"\300, \327L\001\000\000\000\000\204\000\000\000\000\000\000\000@\347L\001\000\000\000\000\207s=X\000\000\000\000\207s=X\000\000\000\000\001\304m\335\375\177\000\000\207s=X\000\000\000\000p\004f\000\000\000\000\000\220\305m\335\375\177\000\000\000\000\000\000\000\000\000\000\320\346m\335\375\177\000\000@R\256\272\064\000\000\000\030\000\000\000\060\000\000\000@\300m\335\375\177\000\000\200\277m\335\375\177", '\000' <repeats 18 times>"\320, \346m\335\375\177\000\000\220\305m\335\375\177\000\000\377\377\377\377\000\000\000\000\377\377\377\377\000\000\000\000ndereço\000\000\000\000\000\000\000\000\000{\240\272\064\000\000\000\360\304m\335\375\177\000\000\001\304m\335\375\177\000\000\207s=X\000\000\000\000p\004f\000\000\000\000\000\220\305m\335\375\177\000\000\325"...
+pid = 29132
+btpath = "/opt/bacula/sbin/btraceback", '\000' <repeats 372 times>
+exelen = <value optimized out>
+already_dead = 1
+chld_status = -1
+now = <value optimized out>
+#2  <signal handler called>
+No symbol table info available.
+#3  e_msg (file=<value optimized out>, line=<value optimized out>, type=<value optimized out>, level=<value optimized out>, fmt=0x7f7b06458824 "Cannot bind port %d: ERR=%s.\n") at message.c:1332
+1332	       p[0] = 0;                      /* generate segmentation violation */
+p = 0x0
+buf = "bk1p-sd: ABORTING due to ERROR in bnet_server.c:132\nCannot bind port 9103: ERR=Endereço já em uso.\n", '\000' <repeats 627 times>, "\\\360`\272\064", '\000' <repeats 11 times>"\247, < \274\064\000\000\000p\240@\006{\177\000\000\252\202`\272\064", '\000' <repeats 35 times>"\322, \035\240\274\064\000\000\000\001\000\000\000\000\000\000\000\000\000 \274\064\000\000\000\000\320!\274\000\000\000\000D\311!\274\064\000\000\000D\311!\274\064", '\000' <repeats 11 times>, "\005\000\000\000\000\000\000\000\000\300"...
+arg_ptr = {{gp_offset = 48, fp_offset = 48, overflow_arg_area = 0x7ffddd6dda28, reg_save_area = 0x7ffddd6dd940}}
+len = <value optimized out>
+#4  0x00007f7b064287ce in bnet_thread_server (addrs=0x149d318, max_clients=41, client_wq=0x660760, handle_client_request=0x425780 <handle_connection_request(void*)>) at bnet_server.c:132
+132	                  be.bstrerror());
+be = {<SMARTALLOC> = {<No data fields>}, m_buf = 0x14ce0d0 "Endereço já em uso", m_berrno = 98}
+tmax = 0
+clilen = <value optimized out>
+turnon = 1
+buf = "H\346m\335\375\177\000\000\005\000\000\000\001\000\000\000P\233%\000\000\000\000\000\320\065@\000\000\000\000\000d", '\000' <repeats 17 times>, "A\006{\177\000\000\240\341`\272\064\000\000\000\005\000\000\000\064", '\000' <repeats 11 times>"\320, RA\006{\177\000\000\b+\340\272\064\000\000\000\000\000A\006{\177\000\000\250\325L\001\000\000\000\000\260\346m\335\375\177\000\000\000\000\000\000\000\000\000"
+allbuf = "\001\000\000\000WZm\274\b35\000{\177\000\000\000\000\000\000\000\000\000\000\060\335m\335\375\177\000\000@\333غ\005\000\000\000\001", '\000' <repeats 39 times>, "p\000\000\000\000\000\000\000\005\000\000\000\061\000\000\000[\000\000\000|\000\000\000w\000\000\000n\000\000\000 堺4\000\000\000\000\320@\006{\177\000\000`\334m\335\375\177\000\000\377\377\377\377\000\000\000\000\300\364I\001\000\000\000\000`\301I\001\000\000\000\000\260\062\065\000{\177\000\000\350\063\065\000{\177\000\000\006\000\000\000\000\000\000\000\n\263`\272\064\000\000\000`\301I\001\000\000\000\000\263\270`\272\064\000\000\000\001", '\000' <repeats 31 times>, "(\334m\335\375\177\000\000\260\332m\335\000\000\000\000(\334m\335\375\177\000\000\370\062\065\000{\177\000\000\270\304I\001\000\000\000\000\000\064\065\000{\177\000\000\000"...
+stat = <value optimized out>
+tlog = <value optimized out>
+fd_ptr = 0x7ffddd6dda30
+sockfds = {<SMARTALLOC> = {<No data fields>}, head = 0x0, tail = 0x0, loffset = 0, num_items = 0}
+newsockfd = <value optimized out>
+clientaddr = {ss_family = 24992, __ss_align = 140166367249640, __ss_padding = "\240\206\001\000\000\000\000\000\377\377\377\377\000\000\000\000\340\303f\006{\177\000\000\005\000\000\000\000\000\000\000\330\340e", '\000' <repeats 37 times>"\240, \341`\272\064\000\000\000\005", '\000' <repeats 23 times>"\240, aA\006{\177\000"}
+addr = 0x149d3b8
+#5  0x0000000000408687 in main (argc=<value optimized out>, argv=<value optimized out>) at stored.c:294
+294	                      &dird_workq, handle_connection_request);
+ch = <value optimized out>
+no_signals = false
+thid = 140166261188352
+uid = 0x0
+gid = 0x0
+#0  0x0000000000000000 in ?? ()
+No symbol table info available.
+#0  0x0000000000000000 in ?? ()
+No symbol table info available.

@@ -1,0 +1,66 @@
+# Default pool definition
+Pool {
+  Name = Default
+  Pool Type = Backup
+  Recycle = yes                       # Bacula can automatically recycle Volumes
+  AutoPrune = yes                     # Prune expired volumes
+  Volume Retention = 365 days         # one year
+  Maximum Volume Bytes = 390G          # Limit Volume size to something reasonable
+#  Maximum Volumes = 390G               # Limit number of Volumes in Pool
+}
+
+# File Pool definition
+Pool {
+  Name = File
+  Pool Type = Backup
+  Recycle = yes                       # Bacula can automatically recycle Volumes
+  AutoPrune = yes                     # Prune expired volumes
+  Volume Retention = 365 days         # one year
+# Maximum Volume Bytes = 390G          # Limit Volume size to something reasonable
+# Maximum Volumes = 390G               # Limit number of Volumes in Pool
+  Label Format = "Vol-"               # Auto label
+}
+
+
+# Scratch pool definition
+#Pool {
+#  Name = Scratch
+#  Pool Type = Backup
+#}
+
+
+# Definição dos Pools
+
+ Pool {
+ Name = Diario
+ Pool Type = Backup           # Indica que é um Pool de Backup
+ Recycle = yes                # Permite que o Bacula recicle volumes automaticamente.
+ Volume Retention = 13 days   # O Volume desta Pool Deverão ser mantidos por "X" Dias Depois de "Encerrados"
+ Purge Oldest Volume = yes    # Recicla sem respeitar tempo de retenção. Purga o volume mais antigo automaticamente.
+ Volume Use Duration = 20  hours 
+ Maximum Volume Bytes = 390G 
+ Storage = LTO-3
+}
+
+Pool {
+ Name = Semanal
+ Pool Type = Backup
+ Recycle = yes
+ Volume Retention = 60 days
+ Purge Oldest Volume = yes  # Recicla sem respeitar tempo de retenção. Purga o volume mais antigo automaticamente.
+ Maximum Volume Bytes = 390G 
+ Storage = LTO-3
+ #Volume Use Duration = 70 hours
+}
+
+Pool {
+  Name = Mensal
+  Pool Type = Backup
+  Recycle = yes                       # Automaticamente reutiliza volumes antigos
+  AutoPrune = yes                     # Retira do Catalogo Volumes nao existentes
+  Volume Retention = 365 days
+  Maximum Volume Bytes = 390G 
+  Purge Oldest Volume = yes          # Recicla sem respeitar tempo de retenção. Purga o volume mais antigo automaticamente.
+ # Volume Use Duration = 70 hours
+  Storage = LTO-3
+}

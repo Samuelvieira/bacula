@@ -1,0 +1,9 @@
+Connecting to Director bk1p:9101
+1000 OK: 102 bk1p-dir Version: 7.4.3 (18 June 2016)
+Enter a period to cancel a command.
+mount "storage=LTO-3"
+Automatically selected Catalog: MyCatalog
+Using Catalog "MyCatalog"
+3905 Device ""LTO-3" (/dev/st0)" open but no Bacula volume is mounted.
+If this is not a blank tape, try unmounting and remounting the Volume.
+You have messages.

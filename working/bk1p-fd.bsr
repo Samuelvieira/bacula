@@ -1,0 +1,14 @@
+# 29-Nov-2016 15:22:00 - BackupClient1.2016-11-29_15.18.45_06 - Full
+Volume="20"
+MediaType="LTO-3"
+VolSessionId=2
+VolSessionTime=1480442085
+VolAddr=4294967296-4295103728
+FileIndex=1-27
+# 29-Nov-2016 23:05:27 - BackupClient1.2016-11-29_23.05.00_21 - Incremental, since=2016-11-29 15:18:47
+Volume="20"
+MediaType="LTO-3"
+VolSessionId=4
+VolSessionTime=1480442085
+VolAddr=12884901888-12884920171
+FileIndex=1-2
