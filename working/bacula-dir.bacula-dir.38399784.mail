@@ -1,3 +1,0 @@
-05-Jan 12:11 bacula-dir: ERROR TERMINATION at bsys.c:655
-bacula-dir is already running. pid=2445
-Check file /var/run/bacula-dir.9101.pid

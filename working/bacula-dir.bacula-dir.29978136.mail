@@ -1,5 +1,0 @@
-29-Nov 09:24 bacula-dir JobId 0: Fatal error: Could not open Catalog "MyCatalog", database "bacula".
-29-Nov 09:24 bacula-dir JobId 0: Fatal error: postgresql.c:271 Unable to connect to PostgreSQL server. Database=bacula User=root
-Possible causes: SQL server not running; password incorrect; max_connections exceeded.
-29-Nov 09:24 bacula-dir ERROR TERMINATION
-Please correct configuration file: /opt/bacula/etc/bacula-dir.conf

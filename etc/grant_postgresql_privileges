@@ -6,7 +6,7 @@
 # License: BSD 2-Clause; see file LICENSE-FOSS
 #
 db_user=${db_user:-bacula}
-bindir=/usr/pgsql-9.5//bin
+bindir=/usr/pgsql-9.4/bin/psql
 db_name=${db_name:-bacula}
 db_password=
 if [ "$db_password" != "" ]; then
@@ -14,7 +14,7 @@ if [ "$db_password" != "" ]; then
 fi
 
 
-$bindir/psql -f - -d ${db_name} $* <<END-OF-DATA
+/usr/pgsql-9.4/bin/psql -f - -d ${db_name} $* <<END-OF-DATA
 
 create user ${db_user} ${pass};
 
